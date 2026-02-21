@@ -2,11 +2,9 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <!-- Важно для правильного отображения на телефонах -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
     <title>МОЙ КАДАСТР | Кадастровые услуги в Красноярске и РФ</title>
     <meta name="description" content="Кадастровые и геодезические работы в Красноярском крае и РФ. Оформление земельных участков, помощь льготным категориям, межевание от 5 000₽. Работаем с 2015 года.">
-    <!-- Font Awesome для иконок -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         /* === ОСНОВНЫЕ СТИЛИ (АДАПТИВНЫЕ) === */
@@ -18,7 +16,7 @@
         }
 
         html {
-            scroll-behavior: smooth; /* Плавная прокрутка для всей страницы */
+            scroll-behavior: smooth;
         }
 
         body {
@@ -36,7 +34,7 @@
             padding: 0 20px;
         }
 
-        /* === ШАПКА (ПРОФЕССИОНАЛЬНАЯ) === */
+        /* === ШАПКА === */
         .header {
             background: white;
             box-shadow: 0 4px 20px rgba(0,0,0,0.03);
@@ -520,7 +518,7 @@
     <header class="header">
         <div class="container header-inner">
             <div class="logo">
-                <div class="logo-icon"></div> <!-- Аватарка из ImgBB -->
+                <div class="logo-icon"></div>
                 <div class="logo-text">
                     <h1>МОЙ КАДАСТР</h1>
                     <p>Кадастровые и геодезические услуги</p>
@@ -621,39 +619,12 @@
         </div>
     </section>
 
-    <!-- ОТЗЫВЫ - ВАШИ 7 ФОТО БЕЗ ИМЕН -->
+    <!-- ОТЗЫВЫ - ВАШИ 7 ФОТО -->
     <section id="reviews" class="section section-light">
         <div class="container">
             <h2 class="section-title">Отзывы наших клиентов</h2>
-            <div class="reviews-grid">
-                <!-- Фото 1 -->
-                <div class="review-card">
-                    <div class="review-photo" style="background-image: url('https://i.ibb.co/fw90xNV/photo-2026-02-21-19-06-43.jpg');" title="Отзыв 1"></div>
-                </div>
-                <!-- Фото 2 -->
-                <div class="review-card">
-                    <div class="review-photo" style="background-image: url('https://i.ibb.co/SwmXc11d/photo-2026-02-21-19-06-59.jpg');" title="Отзыв 2"></div>
-                </div>
-                <!-- Фото 3 -->
-                <div class="review-card">
-                    <div class="review-photo" style="background-image: url('https://i.ibb.co/Mj1xMZT/photo-2026-02-21-19-07-06.jpg');" title="Отзыв 3"></div>
-                </div>
-                <!-- Фото 4 -->
-                <div class="review-card">
-                    <div class="review-photo" style="background-image: url('https://i.ibb.co/JjhDHZv5/photo-2026-02-21-19-07-11.jpg');" title="Отзыв 4"></div>
-                </div>
-                <!-- Фото 5 -->
-                <div class="review-card">
-                    <div class="review-photo" style="background-image: url('https://i.ibb.co/yckQyPtF/photo-2026-02-21-19-07-16.jpg');" title="Отзыв 5"></div>
-                </div>
-                <!-- Фото 6 -->
-                <div class="review-card">
-                    <div class="review-photo" style="background-image: url('https://i.ibb.co/xtCVtc8G/photo-2026-02-21-19-07-22.jpg');" title="Отзыв 6"></div>
-                </div>
-                <!-- Фото 7 -->
-                <div class="review-card">
-                    <div class="review-photo" style="background-image: url('https://i.ibb.co/SGm4ybt/photo-2026-02-21-19-07-27.jpg');" title="Отзыв 7"></div>
-                </div>
+            <div class="reviews-grid" id="reviewsGrid">
+                <!-- Фото будут загружены через JavaScript -->
             </div>
             <p style="text-align:center; margin-top:25px;">
                 <a href="https://t.me/prokadastr24" target="_blank" style="color:#1e3c5c; margin-right:20px;"><i class="fab fa-telegram"></i> Telegram-канал</a>
@@ -730,11 +701,50 @@
     </footer>
 
     <script>
-        // Telegram данные (ваши)
+        // === НАСТРОЙКИ ===
         const TELEGRAM_TOKEN = '8547157787:AAFtPYW7uWZI_AidspthY2Yv6XBITtbKijI';
         const TELEGRAM_CHATS = ['7190496660', '947181995'];
 
-        // Уведомление
+        // === ПРЯМЫЕ ССЫЛКИ НА ИЗОБРАЖЕНИЯ (исправлено!) ===
+        const reviewImages = [
+            'https://i.ibb.co/fw90xNV/photo-2026-02-21-19-06-43.jpg',
+            'https://i.ibb.co/SwmXc11d/photo-2026-02-21-19-06-59.jpg',
+            'https://i.ibb.co/Mj1xMZT/photo-2026-02-21-19-07-06.jpg',
+            'https://i.ibb.co/JjhDHZv5/photo-2026-02-21-19-07-11.jpg',
+            'https://i.ibb.co/yckQyPtF/photo-2026-02-21-19-07-16.jpg',
+            'https://i.ibb.co/xtCVtc8G/photo-2026-02-21-19-07-22.jpg',
+            'https://i.ibb.co/SGm4ybt/photo-2026-02-21-19-07-27.jpg'
+        ];
+
+        // === ЗАГРУЗКА ФОТО ОТЗЫВОВ ===
+        function loadReviewPhotos() {
+            const grid = document.getElementById('reviewsGrid');
+            if (!grid) return;
+            
+            grid.innerHTML = ''; // Очищаем сетку
+            
+            reviewImages.forEach((imgUrl, index) => {
+                const card = document.createElement('div');
+                card.className = 'review-card';
+                
+                const photoDiv = document.createElement('div');
+                photoDiv.className = 'review-photo';
+                photoDiv.style.backgroundImage = `url('${imgUrl}')`;
+                photoDiv.setAttribute('title', `Отзыв ${index + 1}`);
+                
+                // Добавляем запасной вариант на случай ошибки загрузки
+                photoDiv.onerror = function() {
+                    this.style.backgroundColor = '#eef2f6';
+                    this.style.backgroundImage = 'none';
+                    this.innerHTML = '<div style="display:flex; align-items:center; justify-content:center; height:100%; color:#8b9eb0;">Фото</div>';
+                };
+                
+                card.appendChild(photoDiv);
+                grid.appendChild(card);
+            });
+        }
+
+        // === УВЕДОМЛЕНИЕ ===
         const notif = document.getElementById('notification');
         function showNotif(type, title, msg) {
             document.getElementById('notifIcon').className = 'notification-icon ' + type;
@@ -745,7 +755,7 @@
         }
         window.closeNotif = function() { notif.classList.remove('show'); };
 
-        // Формат телефона
+        // === ФОРМАТ ТЕЛЕФОНА ===
         function formatPhone(inp) {
             let v = inp.value.replace(/\D/g,'');
             if(v.length===0) inp.value='+7';
@@ -756,12 +766,13 @@
             else if(v.length<=9) inp.value='+7 ('+v.substring(1,4)+') '+v.substring(4,7)+'-'+v.substring(7);
             else inp.value='+7 ('+v.substring(1,4)+') '+v.substring(4,7)+'-'+v.substring(7,9)+'-'+v.substring(9,11);
         }
+        
         document.querySelectorAll('input[type="tel"]').forEach(i => {
             i.addEventListener('input', function(){formatPhone(this);});
             i.addEventListener('focus', function(){if(this.value==='') this.value='+7';});
         });
 
-        // Отправка в Telegram
+        // === ОТПРАВКА В TELEGRAM ===
         async function sendToTelegram(phone, name, formName) {
             const date = new Date();
             const formattedDate = date.toLocaleString('ru-RU', { day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit' });
@@ -785,7 +796,7 @@
             return ok;
         }
 
-        // Обработка форм
+        // === ОБРАБОТКА ФОРМ ===
         async function handleForm(fId, pId, nId, fName) {
             document.getElementById(fId).addEventListener('submit', async function(e) {
                 e.preventDefault();
@@ -810,11 +821,8 @@
                 btn.innerHTML = orig; btn.disabled=false;
             });
         }
-        
-        handleForm('quickForm', 'quickPhone', 'quickName', 'Быстрая заявка');
-        handleForm('orderForm', 'orderPhone', 'orderName', 'Заявка на консультацию');
 
-        // Мобильное меню
+        // === МОБИЛЬНОЕ МЕНЮ ===
         const menuToggle = document.getElementById('menuToggle');
         const nav = document.getElementById('nav');
         menuToggle.addEventListener('click', ()=>{
@@ -822,14 +830,22 @@
             menuToggle.innerHTML = nav.classList.contains('active') ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
         });
         
-        // Закрыть меню при клике на ссылку
         document.querySelectorAll('.nav a').forEach(a => a.addEventListener('click', ()=>{
             nav.classList.remove('active');
             menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
         }));
 
-        // Закрыть уведомление кликом на фон
+        // === ЗАКРЫТЬ УВЕДОМЛЕНИЕ ===
         notif.addEventListener('click', e => { if(e.target===notif) closeNotif(); });
+
+        // === ЗАПУСК ПРИ ЗАГРУЗКЕ ===
+        window.addEventListener('load', function() {
+            loadReviewPhotos(); // Загружаем фото отзывов
+        });
+
+        // Инициализация форм
+        handleForm('quickForm', 'quickPhone', 'quickName', 'Быстрая заявка');
+        handleForm('orderForm', 'orderPhone', 'orderName', 'Заявка на консультацию');
     </script>
 </body>
 </html>
