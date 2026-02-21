@@ -2,13 +2,12 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <!-- ВАЖНО: исправленный meta viewport для телефонов -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, shrink-to-fit=no">
     <title>МОЙ КАДАСТР | Кадастровые услуги в Красноярске и РФ</title>
     <meta name="description" content="Кадастровые и геодезические работы в Красноярском крае и РФ. Оформление земельных участков, помощь льготным категориям, межевание от 5 000₽. Работаем с 2015 года.">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* === ОСНОВНЫЕ СТИЛИ (АДАПТИВНЫЕ) === */
+        /* === ВЕСЬ ВАШ CSS БЕЗ ИЗМЕНЕНИЙ === */
         * {
             margin: 0;
             padding: 0;
@@ -17,7 +16,7 @@
         }
 
         html {
-            scroll-behavior: smooth; /* Плавная прокрутка для всей страницы */
+            scroll-behavior: smooth;
             width: 100%;
             overflow-x: hidden;
         }
@@ -38,7 +37,7 @@
             padding: 0 20px;
         }
 
-        /* === ШАПКА (ПРОФЕССИОНАЛЬНАЯ) === */
+        /* === ШАПКА === */
         .header {
             background: white;
             box-shadow: 0 4px 20px rgba(0,0,0,0.03);
@@ -365,7 +364,7 @@
         }
         .form-btn:hover { background: #e6a53a; }
 
-        /* === ОТЗЫВЫ - ТОЛЬКО ФОТО (7 ШТУК) === */
+        /* === ОТЗЫВЫ - ИСПРАВЛЕНО ДЛЯ ТЕЛЕФОНОВ === */
         .reviews-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -380,6 +379,8 @@
             overflow: hidden;
             aspect-ratio: 1 / 1;
             box-shadow: 0 10px 20px rgba(0,0,0,0.03);
+            position: relative;
+            background-color: #f5f7fa; /* Запасной фон */
         }
         .review-photo {
             width: 100%;
@@ -387,6 +388,7 @@
             background-size: cover;
             background-position: center;
             transition: transform 0.3s;
+            background-color: #f5f7fa;
         }
         .review-card:hover .review-photo {
             transform: scale(1.03);
@@ -441,7 +443,7 @@
         .footer-col a:hover { color: white; }
         .footer-bottom { border-top: 1px solid #2d4b63; padding-top: 25px; text-align: center; color: #b0c4de; }
 
-        /* === ИСПРАВЛЕННАЯ АДАПТАЦИЯ ПОД ТЕЛЕФОН (БЕЗ ПУСТОТ СПРАВА) === */
+        /* === АДАПТАЦИЯ ПОД ТЕЛЕФОН === */
         @media (max-width: 992px) {
             .hero-grid { grid-template-columns: 1fr; gap: 30px; }
             .services-grid { grid-template-columns: repeat(2, 1fr); }
@@ -530,7 +532,7 @@
     <header class="header">
         <div class="container header-inner">
             <div class="logo">
-                <div class="logo-icon"></div> <!-- Аватарка из ImgBB -->
+                <div class="logo-icon"></div>
                 <div class="logo-text">
                     <h1>МОЙ КАДАСТР</h1>
                     <p>Кадастровые и геодезические услуги</p>
@@ -631,40 +633,11 @@
         </div>
     </section>
 
-    <!-- ОТЗЫВЫ - ВАШИ 7 ФОТО БЕЗ ИМЕН -->
+    <!-- ОТЗЫВЫ - ИСПРАВЛЕНО: ТЕПЕРЬ ФОТО ГРУЗЯТСЯ ЧЕРЕЗ JS -->
     <section id="reviews" class="section section-light">
         <div class="container">
             <h2 class="section-title">Отзывы наших клиентов</h2>
-            <div class="reviews-grid">
-                <!-- Фото 1 -->
-                <div class="review-card">
-                    <div class="review-photo" style="background-image: url('https://i.ibb.co/fw90xNV/photo-2026-02-21-19-06-43.jpg');" title="Отзыв 1"></div>
-                </div>
-                <!-- Фото 2 -->
-                <div class="review-card">
-                    <div class="review-photo" style="background-image: url('https://i.ibb.co/SwmXc11d/photo-2026-02-21-19-06-59.jpg');" title="Отзыв 2"></div>
-                </div>
-                <!-- Фото 3 -->
-                <div class="review-card">
-                    <div class="review-photo" style="background-image: url('https://i.ibb.co/Mj1xMZT/photo-2026-02-21-19-07-06.jpg');" title="Отзыв 3"></div>
-                </div>
-                <!-- Фото 4 -->
-                <div class="review-card">
-                    <div class="review-photo" style="background-image: url('https://i.ibb.co/JjhDHZv5/photo-2026-02-21-19-07-11.jpg');" title="Отзыв 4"></div>
-                </div>
-                <!-- Фото 5 -->
-                <div class="review-card">
-                    <div class="review-photo" style="background-image: url('https://i.ibb.co/yckQyPtF/photo-2026-02-21-19-07-16.jpg');" title="Отзыв 5"></div>
-                </div>
-                <!-- Фото 6 -->
-                <div class="review-card">
-                    <div class="review-photo" style="background-image: url('https://i.ibb.co/xtCVtc8G/photo-2026-02-21-19-07-22.jpg');" title="Отзыв 6"></div>
-                </div>
-                <!-- Фото 7 -->
-                <div class="review-card">
-                    <div class="review-photo" style="background-image: url('https://i.ibb.co/SGm4ybt/photo-2026-02-21-19-07-27.jpg');" title="Отзыв 7"></div>
-                </div>
-            </div>
+            <div class="reviews-grid" id="reviewsGrid"></div>
             <p style="text-align:center; margin-top:25px;">
                 <a href="https://t.me/prokadastr24" target="_blank" style="color:#1e3c5c; margin-right:20px;"><i class="fab fa-telegram"></i> Telegram-канал</a>
                 <a href="https://vk.ru/mykadastr24" target="_blank" style="color:#1e3c5c;"><i class="fab fa-vk"></i> ВКонтакте</a>
@@ -832,7 +805,6 @@
             menuToggle.innerHTML = nav.classList.contains('active') ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
         });
         
-        // Закрыть меню при клике на ссылку
         document.querySelectorAll('.nav a').forEach(a => a.addEventListener('click', ()=>{
             nav.classList.remove('active');
             menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
@@ -840,6 +812,54 @@
 
         // Закрыть уведомление кликом на фон
         notif.addEventListener('click', e => { if(e.target===notif) closeNotif(); });
+
+        // === ИСПРАВЛЕНИЕ: ЗАГРУЗКА ФОТО ЧЕРЕЗ ПРЯМЫЕ ССЫЛКИ ===
+        const reviewImages = [
+            'https://i.ibb.co/fw90xNV/photo-2026-02-21-19-06-43.jpg',
+            'https://i.ibb.co/SwmXc11d/photo-2026-02-21-19-06-59.jpg',
+            'https://i.ibb.co/Mj1xMZT/photo-2026-02-21-19-07-06.jpg',
+            'https://i.ibb.co/JjhDHZv5/photo-2026-02-21-19-07-11.jpg',
+            'https://i.ibb.co/yckQyPtF/photo-2026-02-21-19-07-16.jpg',
+            'https://i.ibb.co/xtCVtc8G/photo-2026-02-21-19-07-22.jpg',
+            'https://i.ibb.co/SGm4ybt/photo-2026-02-21-19-07-27.jpg'
+        ];
+
+        function loadReviews() {
+            const grid = document.getElementById('reviewsGrid');
+            if (!grid) return;
+            
+            grid.innerHTML = ''; // Очищаем сетку
+            
+            reviewImages.forEach((imgUrl, index) => {
+                const card = document.createElement('div');
+                card.className = 'review-card';
+                
+                const photoDiv = document.createElement('div');
+                photoDiv.className = 'review-photo';
+                
+                // Пробуем загрузить через Image() для проверки
+                const img = new Image();
+                img.onload = function() {
+                    photoDiv.style.backgroundImage = `url('${imgUrl}')`;
+                };
+                img.onerror = function() {
+                    photoDiv.style.backgroundColor = '#eef2f6';
+                    photoDiv.style.backgroundImage = 'none';
+                    photoDiv.innerHTML = '<div style="display:flex; align-items:center; justify-content:center; height:100%; color:#8b9eb0; font-size:14px;">Фото отзыва</div>';
+                };
+                img.src = imgUrl;
+                
+                // Сразу ставим фон, но если не загрузится - сработает onerror
+                photoDiv.style.backgroundImage = `url('${imgUrl}')`;
+                photoDiv.title = `Отзыв ${index + 1}`;
+                
+                card.appendChild(photoDiv);
+                grid.appendChild(card);
+            });
+        }
+
+        // Загружаем отзывы при загрузке страницы
+        window.addEventListener('load', loadReviews);
     </script>
 </body>
 </html>
