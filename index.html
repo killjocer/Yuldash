@@ -14,9 +14,6 @@
     <!-- AOS для анимаций -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
-    <!-- Swiper для карусели -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -324,7 +321,7 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.02);
         }
 
-        /* === УСЛУГИ === */
+        /* === УСЛУГИ С ГАРАНТИРОВАННЫМИ ФОТО === */
         .services-section {
             padding: 80px 0;
         }
@@ -359,11 +356,21 @@
             box-shadow: 0 30px 60px rgba(30,60,92,0.08);
             border-color: #1e3c5c;
         }
-        .service-image {
+        .service-image-container {
+            position: relative;
             width: 100%;
             height: 200px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            overflow: hidden;
+        }
+        .service-image {
+            width: 100%;
+            height: 100%;
             object-fit: cover;
-            display: block;
+            transition: transform 0.3s;
+        }
+        .service-card:hover .service-image {
+            transform: scale(1.05);
         }
         .service-content {
             padding: 25px;
@@ -418,7 +425,7 @@
             color: white;
         }
 
-        /* === ОТЗЫВЫ - ТОЛЬКО ФОТО === */
+        /* === ОТЗЫВЫ - ВАШИ ФОТО === */
         .reviews-section {
             background: linear-gradient(135deg, #ffffff, #f8fafc);
             padding: 80px 0;
@@ -639,7 +646,7 @@
             color: white;
         }
 
-        /* === КРАСИВОЕ УВЕДОМЛЕНИЕ - В ЦЕНТРЕ === */
+        /* === УВЕДОМЛЕНИЕ ПО ЦЕНТРУ === */
         .notification-overlay {
             position: fixed;
             top: 0;
@@ -1054,14 +1061,16 @@
         </div>
     </section>
 
-    <!-- УСЛУГИ -->
+    <!-- УСЛУГИ С ГАРАНТИРОВАННЫМИ ФОТО -->
     <section id="services" class="services-section">
         <div class="container">
             <h2 class="section-title" data-aos="fade-up">Наши услуги</h2>
             <p class="section-subtitle" data-aos="fade-up">Полный комплекс кадастровых и геодезических работ</p>
             <div class="services-grid" id="servicesGrid">
                 <div class="service-card" data-aos="flip-up">
-                    <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Постановка на учет" class="service-image" loading="lazy">
+                    <div class="service-image-container">
+                        <img src="https://images.pexels.com/photos/280229/pexels-photo-280229.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Дом" class="service-image" loading="lazy" onerror="this.src='https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&w=800'">
+                    </div>
                     <div class="service-content">
                         <div class="service-icon"><i class="fas fa-home"></i></div>
                         <h3>Постановка на учет</h3>
@@ -1073,7 +1082,9 @@
                     </div>
                 </div>
                 <div class="service-card" data-aos="flip-up" data-aos-delay="100">
-                    <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Акт обследования" class="service-image" loading="lazy">
+                    <div class="service-image-container">
+                        <img src="https://images.pexels.com/photos/323705/pexels-photo-323705.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Документы" class="service-image" loading="lazy" onerror="this.src='https://images.pexels.com/photos/4498129/pexels-photo-4498129.jpeg?auto=compress&cs=tinysrgb&w=800'">
+                    </div>
                     <div class="service-content">
                         <div class="service-icon"><i class="fas fa-file-alt"></i></div>
                         <h3>Акт обследования</h3>
@@ -1085,7 +1096,9 @@
                     </div>
                 </div>
                 <div class="service-card" data-aos="flip-up" data-aos-delay="200">
-                    <img src="https://images.unsplash.com/photo-1542744095-fcf48d80b0fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Межевой план" class="service-image" loading="lazy">
+                    <div class="service-image-container">
+                        <img src="https://images.pexels.com/photos/221540/pexels-photo-221540.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Участок" class="service-image" loading="lazy" onerror="this.src='https://images.pexels.com/photos/210617/pexels-photo-210617.jpeg?auto=compress&cs=tinysrgb&w=800'">
+                    </div>
                     <div class="service-content">
                         <div class="service-icon"><i class="fas fa-draw-polygon"></i></div>
                         <h3>Межевой план</h3>
@@ -1097,7 +1110,9 @@
                     </div>
                 </div>
                 <div class="service-card" data-aos="flip-up">
-                    <img src="https://images.unsplash.com/photo-1572120360610-d971b9d7767c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Оформление гаражей" class="service-image" loading="lazy">
+                    <div class="service-image-container">
+                        <img src="https://images.pexels.com/photos/2988956/pexels-photo-2988956.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Гараж" class="service-image" loading="lazy" onerror="this.src='https://images.pexels.com/photos/244206/pexels-photo-244206.jpeg?auto=compress&cs=tinysrgb&w=800'">
+                    </div>
                     <div class="service-content">
                         <div class="service-icon"><i class="fas fa-warehouse"></i></div>
                         <h3>Оформление гаражей</h3>
@@ -1109,7 +1124,9 @@
                     </div>
                 </div>
                 <div class="service-card" data-aos="flip-up" data-aos-delay="100">
-                    <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Льготным категориям" class="service-image" loading="lazy">
+                    <div class="service-image-container">
+                        <img src="https://images.pexels.com/photos/2725666/pexels-photo-2725666.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Семья" class="service-image" loading="lazy" onerror="this.src='https://images.pexels.com/photos/2641094/pexels-photo-2641094.jpeg?auto=compress&cs=tinysrgb&w=800'">
+                    </div>
                     <div class="service-content">
                         <div class="service-icon"><i class="fas fa-hand-holding-heart"></i></div>
                         <h3>Льготным категориям</h3>
@@ -1121,7 +1138,9 @@
                     </div>
                 </div>
                 <div class="service-card" data-aos="flip-up" data-aos-delay="200">
-                    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Оформление через аукцион" class="service-image" loading="lazy">
+                    <div class="service-image-container">
+                        <img src="https://images.pexels.com/photos/380768/pexels-photo-380768.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Аукцион" class="service-image" loading="lazy" onerror="this.src='https://images.pexels.com/photos/325944/pexels-photo-325944.jpeg?auto=compress&cs=tinysrgb&w=800'">
+                    </div>
                     <div class="service-content">
                         <div class="service-icon"><i class="fas fa-gavel"></i></div>
                         <h3>Оформление через аукцион</h3>
@@ -1293,7 +1312,6 @@
 
     <!-- СКРИПТЫ -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     
     <script>
         // ИНИЦИАЛИЗАЦИЯ АНИМАЦИЙ
@@ -1311,7 +1329,7 @@
             'https://i.ibb.co/Mj1xMZT/photo-2026-02-21-19-07-06.jpg'
         ];
 
-        // ЗАГРУЗКА ФОТО
+        // ЗАГРУЗКА ФОТО ОТЗЫВОВ
         function loadReviewPhotos() {
             const grid = document.getElementById('reviewsGrid');
             if (!grid) return;
@@ -1332,6 +1350,8 @@
                 img.onerror = function() {
                     this.style.backgroundColor = '#eef2f6';
                     this.alt = 'Фото временно недоступно';
+                    // Показываем заглушку
+                    this.style.background = 'linear-gradient(135deg, #1e3c5c, #2c5a82)';
                 };
                 
                 card.appendChild(img);
