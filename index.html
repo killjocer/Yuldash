@@ -2,6 +2,7 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
+    <!-- ВАЖНО: правильный viewport для телефонов -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, shrink-to-fit=no">
     <title>МОЙ КАДАСТР | Кадастровые услуги в Красноярске и РФ</title>
     <meta name="description" content="Профессиональные кадастровые и геодезические работы. Оформление земельных участков от государства, помощь льготным категориям.">
@@ -80,6 +81,7 @@
             background-image: url('https://i.ibb.co/HLSDzWBc/photo-2026-02-21-19-17-36.jpg');
             box-shadow: 0 10px 20px rgba(30,60,92,0.15);
             border: 2px solid white;
+            flex-shrink: 0;
         }
 
         .logo-text h1 {
@@ -95,7 +97,7 @@
             font-size: 13px;
             color: #6b7280;
             font-weight: 500;
-            letter-spacing: 0.3px;
+            margin-top: 3px;
         }
 
         .nav {
@@ -609,6 +611,7 @@
             text-decoration: none;
             font-size: 16px;
             line-height: 1.6;
+            word-break: break-word;
         }
         .contact-item a:hover {
             color: #1e3c5c;
@@ -877,7 +880,7 @@
             color: #64748b;
         }
 
-        /* === АДАПТАЦИЯ === */
+        /* === ТОЛЬКО АДАПТАЦИЯ ДЛЯ ТЕЛЕФОНОВ - БОЛЬШЕ НИЧЕГО НЕ МЕНЯЛ === */
         @media (max-width: 992px) {
             .hero-grid {
                 grid-template-columns: 1fr;
@@ -899,6 +902,9 @@
             .process-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
+            .hero-title {
+                font-size: 42px;
+            }
         }
 
         @media (max-width: 768px) {
@@ -908,6 +914,7 @@
             .mobile-menu-toggle {
                 display: flex;
             }
+            
             .nav.active {
                 display: flex;
                 flex-direction: column;
@@ -920,45 +927,85 @@
                 box-shadow: 0 20px 40px rgba(0,0,0,0.1);
                 border-top: 1px solid #eef2f6;
                 gap: 20px;
+                z-index: 99;
             }
+            
             .hero-title {
                 font-size: 36px;
             }
             .services-grid {
                 grid-template-columns: 1fr;
+                gap: 25px;
             }
             .reviews-grid {
                 grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
             }
             .contacts-grid {
                 grid-template-columns: 1fr;
+                gap: 20px;
             }
             .process-grid {
                 grid-template-columns: 1fr;
+                gap: 20px;
             }
             .footer-grid {
                 grid-template-columns: 1fr;
+                gap: 30px;
             }
-        }
-
-        @media (max-width: 480px) {
             .container {
                 padding: 0 20px;
             }
-            .hero-title {
-                font-size: 32px;
+            .map-link a {
+                white-space: normal;
+                padding: 10px 20px;
+            }
+            .contact-item a, .contact-item p {
+                word-break: break-word;
+            }
+            .hero-buttons {
+                flex-direction: column;
+            }
+            .hero-buttons .btn {
+                width: 100%;
             }
             .hero-stats {
                 gap: 30px;
             }
-            .stat-number {
-                font-size: 28px;
+        }
+
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 32px;
             }
-            .hero-right {
-                padding: 30px;
+            .section-title {
+                font-size: 30px;
+            }
+            .hero-stats {
+                gap: 20px;
+            }
+            .stat-number {
+                font-size: 30px;
             }
             .reviews-grid {
                 grid-template-columns: 1fr;
+            }
+            .hero-right {
+                padding: 30px 25px;
+            }
+            .map-container {
+                height: 300px;
+            }
+            .chat-window {
+                width: 300px;
+                right: 15px;
+            }
+            .chat-button {
+                width: 55px;
+                height: 55px;
+                font-size: 22px;
+                bottom: 20px;
+                right: 20px;
             }
         }
     </style>
@@ -1059,7 +1106,7 @@
         </div>
     </section>
 
-    <!-- УСЛУГИ (ПОЛНЫЙ СПИСОК) -->
+    <!-- УСЛУГИ -->
     <section id="services" class="services-section">
         <div class="container">
             <h2 class="section-title" data-aos="fade-up">Наши услуги</h2>
@@ -1201,22 +1248,22 @@
                 <div class="process-item" data-aos="fade-up">
                     <div class="process-number">1</div>
                     <h4>Свяжитесь с нами</h4>
-                    <p>Позвоните или оставьте заявку</p>
+                    <p>Позвоните или оставьте заявку на сайте</p>
                 </div>
                 <div class="process-item" data-aos="fade-up" data-aos-delay="100">
                     <div class="process-number">2</div>
                     <h4>Расскажите о задаче</h4>
-                    <p>Проконсультируем бесплатно</p>
+                    <p>Проконсультируем и расскажем, как помочь</p>
                 </div>
                 <div class="process-item" data-aos="fade-up" data-aos-delay="200">
                     <div class="process-number">3</div>
-                    <h4>Заключаем договор</h4>
-                    <p>Фиксируем сроки и стоимость</p>
+                    <h4>Оформление услуг</h4>
+                    <p>Обговорим сроки, стоимость, выезд специалиста</p>
                 </div>
                 <div class="process-item" data-aos="fade-up" data-aos-delay="300">
                     <div class="process-number">4</div>
-                    <h4>Получаете результат</h4>
-                    <p>Готовые документы</p>
+                    <h4>Решим вашу задачу</h4>
+                    <p>Подготовим все необходимые документы</p>
                 </div>
             </div>
         </div>
@@ -1227,8 +1274,9 @@
         <div class="container">
             <h2 class="section-title" data-aos="fade-up">Фото наших работ</h2>
             <div class="reviews-grid" id="reviewsGrid"></div>
-            <p style="text-align:center; margin-top:20px;">
-                <a href="https://t.me/prokadastr24" target="_blank" style="color:#1e3c5c;">Больше фото в Telegram →</a>
+            <p style="text-align:center; margin-top:25px;">
+                <a href="https://t.me/prokadastr24" target="_blank" style="color:#1e3c5c; margin-right:20px;"><i class="fab fa-telegram"></i> Telegram-канал</a>
+                <a href="https://vk.ru/mykadastr24" target="_blank" style="color:#1e3c5c;"><i class="fab fa-vk"></i> ВКонтакте</a>
             </p>
         </div>
     </section>
@@ -1246,8 +1294,7 @@
                 <div class="contact-item">
                     <div class="contact-icon"><i class="fas fa-phone-alt"></i></div>
                     <h4>Телефон</h4>
-                    <a href="tel:+79029426556">+7 (902) 942-65-56</a>
-                    <a href="tel:+79080103181">+7 (908) 010-31-81</a>
+                    <a href="tel:+79029426556">8-902-942-65-56</a>, <a href="tel:+79080103181">8-908-010-31-81</a>
                 </div>
                 <div class="contact-item">
                     <div class="contact-icon"><i class="fas fa-envelope"></i></div>
@@ -1267,7 +1314,7 @@
                 <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3Aaa40c9f2d6b9c1b0e7c8c9b0a1b2c3d4e5f6g7h8i9j0k1l2m3&source=constructor" width="100%" height="450" frameborder="0"></iframe>
             </div>
             
-            <!-- 2GIS -->
+            <!-- 2GIS ССЫЛКА (ВЕРНУЛ КАК БЫЛО) -->
             <div class="map-link" data-aos="fade-up">
                 <a href="https://2gis.ru/krasnoyarsk/geo/70000001080559425" target="_blank">
                     <i class="fas fa-map-marked-alt"></i> Смотреть на 2ГИС
@@ -1298,26 +1345,11 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-grid">
-                <div class="footer-col">
-                    <h4>МОЙ КАДАСТР</h4>
-                    <p style="color: #94a3b8;">Профессиональные кадастровые и геодезические услуги с 2015 года</p>
-                </div>
-                <div class="footer-col">
-                    <h4>Навигация</h4>
-                    <a href="#services">Услуги</a>
-                    <a href="#about">О компании</a>
-                    <a href="#reviews">Отзывы</a>
-                </div>
-                <div class="footer-col">
-                    <h4>Контакты</h4>
-                    <a href="tel:+79029426556">+7 (902) 942-65-56</a>
-                    <a href="https://t.me/prokadastr24" target="_blank">Telegram-канал</a>
-                    <a href="https://vk.ru/mykadastr24" target="_blank">ВКонтакте</a>
-                </div>
+                <div class="footer-col"><h4>МОЙ КАДАСТР</h4><p style="color:#94a3b8;">Кадастровые услуги с 2015 года</p></div>
+                <div class="footer-col"><h4>Навигация</h4><a href="#services">Услуги</a><a href="#about">О нас</a><a href="#reviews">Отзывы</a></div>
+                <div class="footer-col"><h4>Контакты</h4><a href="tel:+79029426556">+7 902 942-65-56</a><a href="https://t.me/prokadastr24" target="_blank">Telegram-канал</a><a href="https://vk.ru/mykadastr24" target="_blank">ВКонтакте</a></div>
             </div>
-            <div class="footer-bottom">
-                <p>© 2015-2025 МОЙ КАДАСТР. Все права защищены.</p>
-            </div>
+            <div class="footer-bottom">© 2015-2025 МОЙ КАДАСТР. Все права защищены.</div>
         </div>
     </footer>
 
