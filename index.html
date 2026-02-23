@@ -321,7 +321,7 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.02);
         }
 
-        /* === УСЛУГИ С ГАРАНТИРОВАННЫМИ ФОТО === */
+        /* === УСЛУГИ === */
         .services-section {
             padding: 80px 0;
         }
@@ -357,11 +357,10 @@
             border-color: #1e3c5c;
         }
         .service-image-container {
-            position: relative;
             width: 100%;
             height: 200px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
             overflow: hidden;
+            background: linear-gradient(135deg, #667eea, #764ba2);
         }
         .service-image {
             width: 100%;
@@ -425,7 +424,7 @@
             color: white;
         }
 
-        /* === ОТЗЫВЫ - ВАШИ ФОТО === */
+        /* === ОТЗЫВЫ === */
         .reviews-section {
             background: linear-gradient(135deg, #ffffff, #f8fafc);
             padding: 80px 0;
@@ -547,13 +546,14 @@
         .author-avatar {
             width: 60px;
             height: 60px;
-            background: linear-gradient(135deg, #1e3c5c, #2c5a82);
             border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 24px;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+        .author-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
         .author-info strong {
             font-size: 18px;
@@ -646,7 +646,7 @@
             color: white;
         }
 
-        /* === УВЕДОМЛЕНИЕ ПО ЦЕНТРУ === */
+        /* === УВЕДОМЛЕНИЕ === */
         .notification-overlay {
             position: fixed;
             top: 0;
@@ -964,7 +964,7 @@
     </style>
 </head>
 <body>
-    <!-- УВЕДОМЛЕНИЕ ПО ЦЕНТРУ -->
+    <!-- УВЕДОМЛЕНИЕ -->
     <div id="notificationOverlay" class="notification-overlay">
         <div class="notification-modal">
             <div id="notificationIcon" class="notification-icon success">
@@ -976,12 +976,10 @@
         </div>
     </div>
 
-    <!-- ЧАТ КНОПКА -->
+    <!-- ЧАТ -->
     <div class="chat-button" id="chatButton">
         <i class="fas fa-comment"></i>
     </div>
-
-    <!-- ЧАТ ОКНО -->
     <div class="chat-window" id="chatWindow">
         <div class="chat-header">
             <span style="font-weight:600;">Чат с поддержкой</span>
@@ -1061,12 +1059,14 @@
         </div>
     </section>
 
-    <!-- УСЛУГИ С ГАРАНТИРОВАННЫМИ ФОТО -->
+    <!-- УСЛУГИ (ПОЛНЫЙ СПИСОК) -->
     <section id="services" class="services-section">
         <div class="container">
             <h2 class="section-title" data-aos="fade-up">Наши услуги</h2>
             <p class="section-subtitle" data-aos="fade-up">Полный комплекс кадастровых и геодезических работ</p>
             <div class="services-grid" id="servicesGrid">
+
+                <!-- 1. Постановка на учет -->
                 <div class="service-card" data-aos="flip-up">
                     <div class="service-image-container">
                         <img src="https://images.pexels.com/photos/280229/pexels-photo-280229.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Дом" class="service-image" loading="lazy" onerror="this.src='https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&w=800'">
@@ -1081,6 +1081,8 @@
                         </button>
                     </div>
                 </div>
+
+                <!-- 2. Акт обследования -->
                 <div class="service-card" data-aos="flip-up" data-aos-delay="100">
                     <div class="service-image-container">
                         <img src="https://images.pexels.com/photos/323705/pexels-photo-323705.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Документы" class="service-image" loading="lazy" onerror="this.src='https://images.pexels.com/photos/4498129/pexels-photo-4498129.jpeg?auto=compress&cs=tinysrgb&w=800'">
@@ -1095,6 +1097,8 @@
                         </button>
                     </div>
                 </div>
+
+                <!-- 3. Межевой план -->
                 <div class="service-card" data-aos="flip-up" data-aos-delay="200">
                     <div class="service-image-container">
                         <img src="https://images.pexels.com/photos/221540/pexels-photo-221540.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Участок" class="service-image" loading="lazy" onerror="this.src='https://images.pexels.com/photos/210617/pexels-photo-210617.jpeg?auto=compress&cs=tinysrgb&w=800'">
@@ -1109,6 +1113,8 @@
                         </button>
                     </div>
                 </div>
+
+                <!-- 4. Оформление гаражей -->
                 <div class="service-card" data-aos="flip-up">
                     <div class="service-image-container">
                         <img src="https://images.pexels.com/photos/2988956/pexels-photo-2988956.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Гараж" class="service-image" loading="lazy" onerror="this.src='https://images.pexels.com/photos/244206/pexels-photo-244206.jpeg?auto=compress&cs=tinysrgb&w=800'">
@@ -1116,13 +1122,15 @@
                     <div class="service-content">
                         <div class="service-icon"><i class="fas fa-warehouse"></i></div>
                         <h3>Оформление гаражей</h3>
-                        <p class="service-desc">Гаражи и земельные участки под ними.</p>
+                        <p class="service-desc">Гаражи и земельные участки под ними. Поможем узаконить и поставить на учет.</p>
                         <div class="service-price">от 6 000 ₽</div>
                         <button class="service-btn order-service" data-service="Оформление гаражей" data-price="от 6 000 ₽">
                             <i class="fas fa-shopping-cart"></i> Заказать
                         </button>
                     </div>
                 </div>
+
+                <!-- 5. Льготным категориям -->
                 <div class="service-card" data-aos="flip-up" data-aos-delay="100">
                     <div class="service-image-container">
                         <img src="https://images.pexels.com/photos/2725666/pexels-photo-2725666.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Семья" class="service-image" loading="lazy" onerror="this.src='https://images.pexels.com/photos/2641094/pexels-photo-2641094.jpeg?auto=compress&cs=tinysrgb&w=800'">
@@ -1130,13 +1138,15 @@
                     <div class="service-content">
                         <div class="service-icon"><i class="fas fa-hand-holding-heart"></i></div>
                         <h3>Льготным категориям</h3>
-                        <p class="service-desc">Многодетные, инвалиды, ветераны боевых действий.</p>
+                        <p class="service-desc">Многодетные семьи, инвалиды, ветераны боевых действий. Помощь в оформлении.</p>
                         <div class="service-price">от 30 000 ₽</div>
                         <button class="service-btn order-service" data-service="Льготным категориям" data-price="от 30 000 ₽">
                             <i class="fas fa-shopping-cart"></i> Заказать
                         </button>
                     </div>
                 </div>
+
+                <!-- 6. Оформление через аукцион -->
                 <div class="service-card" data-aos="flip-up" data-aos-delay="200">
                     <div class="service-image-container">
                         <img src="https://images.pexels.com/photos/380768/pexels-photo-380768.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Аукцион" class="service-image" loading="lazy" onerror="this.src='https://images.pexels.com/photos/325944/pexels-photo-325944.jpeg?auto=compress&cs=tinysrgb&w=800'">
@@ -1144,13 +1154,14 @@
                     <div class="service-content">
                         <div class="service-icon"><i class="fas fa-gavel"></i></div>
                         <h3>Оформление через аукцион</h3>
-                        <p class="service-desc">ИЖС, КФХ, земли лесного фонда.</p>
+                        <p class="service-desc">ИЖС, КФХ, земли лесного фонда, участки для бизнеса.</p>
                         <div class="service-price">от 50 000 ₽</div>
                         <button class="service-btn order-service" data-service="Оформление через аукцион" data-price="от 50 000 ₽">
                             <i class="fas fa-shopping-cart"></i> Заказать
                         </button>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
@@ -1170,7 +1181,7 @@
                     <p class="quote-text">Помогаем людям решать вопросы с недвижимостью быстро и профессионально.</p>
                     <div class="quote-author">
                         <div class="author-avatar">
-                            <i class="fas fa-user-tie"></i>
+                            <img src="https://i.ibb.co/ZzcWcfvS/photo-2026-02-22-08-27-58.jpg" alt="Алина">
                         </div>
                         <div class="author-info">
                             <strong>Алина</strong>
@@ -1211,7 +1222,7 @@
         </div>
     </section>
 
-    <!-- ОТЗЫВЫ - ВАШИ ФОТО -->
+    <!-- ОТЗЫВЫ -->
     <section id="reviews" class="reviews-section">
         <div class="container">
             <h2 class="section-title" data-aos="fade-up">Фото наших работ</h2>
@@ -1256,7 +1267,7 @@
                 <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3Aaa40c9f2d6b9c1b0e7c8c9b0a1b2c3d4e5f6g7h8i9j0k1l2m3&source=constructor" width="100%" height="450" frameborder="0"></iframe>
             </div>
             
-            <!-- ССЫЛКА 2GIS -->
+            <!-- 2GIS -->
             <div class="map-link" data-aos="fade-up">
                 <a href="https://2gis.ru/krasnoyarsk/geo/70000001080559425" target="_blank">
                     <i class="fas fa-map-marked-alt"></i> Смотреть на 2ГИС
@@ -1346,12 +1357,9 @@
                 img.alt = 'Фото работы';
                 img.loading = 'lazy';
                 
-                // Обработка ошибки загрузки
                 img.onerror = function() {
                     this.style.backgroundColor = '#eef2f6';
                     this.alt = 'Фото временно недоступно';
-                    // Показываем заглушку
-                    this.style.background = 'linear-gradient(135deg, #1e3c5c, #2c5a82)';
                 };
                 
                 card.appendChild(img);
@@ -1374,7 +1382,7 @@
                 document.getElementById('geoLocation').querySelector('span').textContent = 'Работаем по всей России';
             });
 
-        // УВЕДОМЛЕНИЯ (ЦЕНТР)
+        // УВЕДОМЛЕНИЯ
         const notifOverlay = document.getElementById('notificationOverlay');
         const notifIcon = document.getElementById('notificationIcon');
         const notifTitle = document.getElementById('notificationTitle');
