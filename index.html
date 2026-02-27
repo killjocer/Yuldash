@@ -2,8 +2,8 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <!-- ВАЖНО: правильный viewport для телефонов -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, shrink-to-fit=no">
+    <!-- КРИТИЧЕСКИ ВАЖНО ДЛЯ REDMI И ДРУГИХ ANDROID -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no, viewport-fit=cover">
     <title>МОЙ КАДАСТР | Кадастровые услуги в Красноярске и РФ</title>
     <meta name="description" content="Профессиональные кадастровые и геодезические работы. Оформление земельных участков от государства, помощь льготным категориям.">
     
@@ -39,6 +39,7 @@
             line-height: 1.6;
             overflow-x: hidden;
             width: 100%;
+            position: relative;
         }
 
         .container {
@@ -166,6 +167,7 @@
             background: linear-gradient(135deg, #f8fafc 0%, #ffffff 50%, #f1f5f9 100%);
             position: relative;
             overflow: hidden;
+            width: 100%;
         }
 
         .hero:before {
@@ -326,6 +328,7 @@
         /* === УСЛУГИ === */
         .services-section {
             padding: 80px 0;
+            width: 100%;
         }
         .section-title {
             font-size: 36px;
@@ -352,6 +355,7 @@
             overflow: hidden;
             border: 1px solid #eef2f6;
             transition: all 0.3s;
+            width: 100%;
         }
         .service-card:hover {
             transform: translateY(-10px);
@@ -430,6 +434,7 @@
         .reviews-section {
             background: linear-gradient(135deg, #ffffff, #f8fafc);
             padding: 80px 0;
+            width: 100%;
         }
         .reviews-grid {
             display: grid;
@@ -457,6 +462,7 @@
         .process-section {
             padding: 80px 0;
             background: #f8fafc;
+            width: 100%;
         }
         .process-grid {
             display: grid;
@@ -497,6 +503,7 @@
         /* === О КОМПАНИИ === */
         .about-section {
             padding: 80px 0;
+            width: 100%;
         }
         .about-grid {
             display: grid;
@@ -570,6 +577,7 @@
         .contacts-section {
             padding: 80px 0;
             background: #f8fafc;
+            width: 100%;
         }
         .contacts-grid {
             display: grid;
@@ -664,6 +672,7 @@
             opacity: 0;
             visibility: hidden;
             transition: all 0.3s;
+            padding: 20px;
         }
         .notification-overlay.show {
             opacity: 1;
@@ -674,7 +683,7 @@
             border-radius: 24px;
             padding: 35px;
             max-width: 400px;
-            width: 90%;
+            width: 100%;
             text-align: center;
             box-shadow: 0 30px 60px rgba(0,0,0,0.3);
             transform: scale(0.9);
@@ -725,6 +734,67 @@
         .notification-btn:hover {
             transform: translateY(-2px);
             box-shadow: 0 10px 20px rgba(30,60,92,0.3);
+        }
+
+        /* === COOKIE CONSENT === */
+        .cookie-consent {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            right: 20px;
+            background: white;
+            border-radius: 16px;
+            padding: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            z-index: 9999;
+            display: none;
+            max-width: 400px;
+            margin: 0 auto;
+            border: 1px solid #eef2f6;
+        }
+        .cookie-consent.show {
+            display: block;
+        }
+        .cookie-content {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .cookie-text {
+            color: #475569;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        .cookie-buttons {
+            display: flex;
+            gap: 10px;
+        }
+        .cookie-btn {
+            flex: 1;
+            padding: 12px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-align: center;
+        }
+        .cookie-btn.accept {
+            background: linear-gradient(135deg, #1e3c5c, #2c5a82);
+            color: white;
+            border: none;
+        }
+        .cookie-btn.accept:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(30,60,92,0.3);
+        }
+        .cookie-btn.decline {
+            background: white;
+            color: #1e3c5c;
+            border: 2px solid #1e3c5c;
+        }
+        .cookie-btn.decline:hover {
+            background: #f1f5f9;
         }
 
         /* === ЧАТ === */
@@ -851,6 +921,7 @@
             background: #0f172a;
             color: white;
             padding: 60px 0 30px;
+            width: 100%;
         }
         .footer-grid {
             display: grid;
@@ -880,7 +951,7 @@
             color: #64748b;
         }
 
-        /* === ТОЛЬКО АДАПТАЦИЯ ДЛЯ ТЕЛЕФОНОВ - БОЛЬШЕ НИЧЕГО НЕ МЕНЯЛ === */
+        /* === ИСПРАВЛЕННАЯ АДАПТАЦИЯ ДЛЯ REDMI И ДРУГИХ ANDROID === */
         @media (max-width: 992px) {
             .hero-grid {
                 grid-template-columns: 1fr;
@@ -902,8 +973,28 @@
             .process-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
-            .hero-title {
-                font-size: 42px;
+        }
+
+        @media (max-width: 850px) {
+            .container {
+                padding: 0 20px;
+            }
+            
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+            
+            .service-card h3 {
+                font-size: 20px;
+            }
+            
+            .service-desc {
+                font-size: 14px;
+            }
+            
+            .service-price {
+                font-size: 22px;
             }
         }
 
@@ -933,73 +1024,182 @@
             .hero-title {
                 font-size: 36px;
             }
+            
+            .hero-desc {
+                font-size: 16px;
+            }
+            
+            .hero-stats {
+                gap: 30px;
+            }
+            
+            .stat-number {
+                font-size: 32px;
+            }
+            
+            .hero-right {
+                padding: 35px 25px;
+            }
+            
             .services-grid {
                 grid-template-columns: 1fr;
                 gap: 25px;
             }
+            
             .reviews-grid {
                 grid-template-columns: repeat(2, 1fr);
                 gap: 15px;
             }
+            
             .contacts-grid {
                 grid-template-columns: 1fr;
                 gap: 20px;
             }
+            
             .process-grid {
                 grid-template-columns: 1fr;
                 gap: 20px;
             }
+            
+            .process-item {
+                padding: 25px;
+            }
+            
+            .about-grid {
+                gap: 30px;
+            }
+            
+            .about-title {
+                font-size: 32px;
+            }
+            
+            .about-text {
+                font-size: 16px;
+            }
+            
+            .about-quote {
+                padding: 30px;
+            }
+            
+            .quote-text {
+                font-size: 16px;
+            }
+            
             .footer-grid {
                 grid-template-columns: 1fr;
                 gap: 30px;
             }
-            .container {
-                padding: 0 20px;
-            }
-            .map-link a {
-                white-space: normal;
-                padding: 10px 20px;
-            }
-            .contact-item a, .contact-item p {
-                word-break: break-word;
-            }
-            .hero-buttons {
-                flex-direction: column;
-            }
-            .hero-buttons .btn {
-                width: 100%;
-            }
-            .hero-stats {
-                gap: 30px;
+            
+            .footer-col {
+                text-align: center;
             }
         }
 
-        @media (max-width: 480px) {
+        @media (max-width: 600px) {
+            .container {
+                padding: 0 15px;
+            }
+            
             .hero-title {
                 font-size: 32px;
             }
+            
+            .hero-stats {
+                gap: 20px;
+                justify-content: space-between;
+            }
+            
+            .stat-number {
+                font-size: 28px;
+            }
+            
+            .stat-label {
+                font-size: 12px;
+            }
+            
+            .hero-right {
+                padding: 30px 20px;
+            }
+            
+            .form-title {
+                font-size: 24px;
+            }
+            
+            .form-input {
+                padding: 16px 20px;
+                font-size: 15px;
+            }
+            
+            .form-btn {
+                padding: 16px 25px;
+            }
+            
             .section-title {
                 font-size: 30px;
             }
-            .hero-stats {
-                gap: 20px;
+            
+            .section-subtitle {
+                font-size: 16px;
             }
-            .stat-number {
-                font-size: 30px;
+            
+            .service-card h3 {
+                font-size: 18px;
             }
-            .reviews-grid {
-                grid-template-columns: 1fr;
+            
+            .service-desc {
+                font-size: 13px;
             }
-            .hero-right {
-                padding: 30px 25px;
+            
+            .service-price {
+                font-size: 20px;
             }
+            
+            .service-btn {
+                padding: 10px 15px;
+                font-size: 14px;
+            }
+            
+            .process-number {
+                width: 50px;
+                height: 50px;
+                font-size: 22px;
+            }
+            
+            .process-item h4 {
+                font-size: 16px;
+            }
+            
+            .process-item p {
+                font-size: 13px;
+            }
+            
+            .contact-item {
+                padding: 25px;
+            }
+            
+            .contact-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 22px;
+            }
+            
+            .contact-item h4 {
+                font-size: 16px;
+            }
+            
+            .contact-item a, .contact-item p {
+                font-size: 14px;
+            }
+            
             .map-container {
                 height: 300px;
             }
-            .chat-window {
-                width: 300px;
-                right: 15px;
+            
+            .map-link a {
+                padding: 10px 20px;
+                font-size: 14px;
             }
+            
             .chat-button {
                 width: 55px;
                 height: 55px;
@@ -1007,10 +1207,221 @@
                 bottom: 20px;
                 right: 20px;
             }
+            
+            .chat-window {
+                width: 300px;
+                right: 15px;
+                bottom: 90px;
+            }
+            
+            .cookie-consent {
+                left: 15px;
+                right: 15px;
+                padding: 15px;
+            }
+            
+            .cookie-text {
+                font-size: 13px;
+            }
+            
+            .cookie-buttons {
+                flex-direction: column;
+            }
+            
+            .cookie-btn {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 28px;
+            }
+            
+            .hero-desc {
+                font-size: 15px;
+            }
+            
+            .hero-buttons .btn {
+                width: 100%;
+            }
+            
+            .hero-stats {
+                gap: 15px;
+            }
+            
+            .stat-number {
+                font-size: 24px;
+            }
+            
+            .stat-label {
+                font-size: 11px;
+            }
+            
+            .section-title {
+                font-size: 26px;
+            }
+            
+            .reviews-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .logo-text h1 {
+                font-size: 20px;
+            }
+            
+            .logo-text p {
+                font-size: 11px;
+            }
+            
+            .logo-icon {
+                width: 45px;
+                height: 45px;
+            }
+            
+            .phone-link {
+                padding: 8px 15px;
+                font-size: 13px;
+            }
+            
+            .map-link a {
+                white-space: normal;
+                word-break: break-word;
+            }
+            
+            .contact-item a {
+                word-break: break-word;
+            }
+            
+            .geo-badge {
+                font-size: 13px;
+                padding: 8px 15px;
+            }
+        }
+
+        /* СПЕЦИАЛЬНО ДЛЯ REDMI И ДРУГИХ ANDROID */
+        @media (max-width: 400px) {
+            .container {
+                padding: 0 12px;
+            }
+            
+            .hero-title {
+                font-size: 26px;
+            }
+            
+            .hero-stats {
+                gap: 10px;
+            }
+            
+            .stat-number {
+                font-size: 22px;
+            }
+            
+            .stat-label {
+                font-size: 10px;
+            }
+            
+            .hero-right {
+                padding: 25px 15px;
+            }
+            
+            .form-title {
+                font-size: 22px;
+            }
+            
+            .form-input {
+                padding: 14px 18px;
+                font-size: 14px;
+            }
+            
+            .form-btn {
+                padding: 14px 20px;
+                font-size: 14px;
+            }
+            
+            .section-title {
+                font-size: 24px;
+            }
+            
+            .service-card h3 {
+                font-size: 17px;
+            }
+            
+            .service-desc {
+                font-size: 12px;
+            }
+            
+            .service-price {
+                font-size: 18px;
+            }
+            
+            .service-btn {
+                padding: 8px 12px;
+                font-size: 13px;
+            }
+            
+            .process-number {
+                width: 45px;
+                height: 45px;
+                font-size: 20px;
+            }
+            
+            .process-item h4 {
+                font-size: 15px;
+            }
+            
+            .process-item p {
+                font-size: 12px;
+            }
+            
+            .contact-item {
+                padding: 20px;
+            }
+            
+            .contact-icon {
+                width: 45px;
+                height: 45px;
+                font-size: 20px;
+            }
+            
+            .contact-item h4 {
+                font-size: 15px;
+            }
+            
+            .contact-item a, .contact-item p {
+                font-size: 13px;
+            }
+            
+            .map-link a {
+                padding: 8px 15px;
+                font-size: 13px;
+            }
+            
+            .cookie-text {
+                font-size: 12px;
+            }
+            
+            .cookie-btn {
+                padding: 10px;
+                font-size: 13px;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- COOKIE CONSENT -->
+    <div id="cookieConsent" class="cookie-consent">
+        <div class="cookie-content">
+            <div class="cookie-text">
+                Мы используем файлы cookie для улучшения работы сайта. Продолжая использовать сайт, вы соглашаетесь с этим.
+            </div>
+            <div class="cookie-buttons">
+                <button class="cookie-btn accept" onclick="acceptCookies()">Принять</button>
+                <button class="cookie-btn decline" onclick="declineCookies()">Отклонить</button>
+            </div>
+        </div>
+    </div>
+
     <!-- УВЕДОМЛЕНИЕ -->
     <div id="notificationOverlay" class="notification-overlay">
         <div class="notification-modal">
@@ -1112,7 +1523,6 @@
             <h2 class="section-title" data-aos="fade-up">Наши услуги</h2>
             <p class="section-subtitle" data-aos="fade-up">Полный комплекс кадастровых и геодезических работ</p>
             <div class="services-grid" id="servicesGrid">
-
                 <!-- 1. Постановка на учет -->
                 <div class="service-card" data-aos="flip-up">
                     <div class="service-image-container">
@@ -1208,7 +1618,6 @@
                         </button>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
@@ -1314,7 +1723,7 @@
                 <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3Aaa40c9f2d6b9c1b0e7c8c9b0a1b2c3d4e5f6g7h8i9j0k1l2m3&source=constructor" width="100%" height="450" frameborder="0"></iframe>
             </div>
             
-            <!-- 2GIS ССЫЛКА (ВЕРНУЛ КАК БЫЛО) -->
+            <!-- 2GIS ССЫЛКА -->
             <div class="map-link" data-aos="fade-up">
                 <a href="https://2gis.ru/krasnoyarsk/geo/70000001080559425" target="_blank">
                     <i class="fas fa-map-marked-alt"></i> Смотреть на 2ГИС
@@ -1397,6 +1806,24 @@
                 card.appendChild(img);
                 grid.appendChild(card);
             });
+        }
+
+        // COOKIE CONSENT
+        function acceptCookies() {
+            document.getElementById('cookieConsent').classList.remove('show');
+            localStorage.setItem('cookieConsent', 'accepted');
+        }
+
+        function declineCookies() {
+            document.getElementById('cookieConsent').classList.remove('show');
+            localStorage.setItem('cookieConsent', 'declined');
+        }
+
+        // Проверяем, показывать ли cookie consent
+        if (!localStorage.getItem('cookieConsent')) {
+            setTimeout(() => {
+                document.getElementById('cookieConsent').classList.add('show');
+            }, 1000);
         }
 
         // ГЕОЛОКАЦИЯ
