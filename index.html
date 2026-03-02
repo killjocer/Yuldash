@@ -2,24 +2,19 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <!-- КРИТИЧЕСКИ ВАЖНО ДЛЯ REDMI И ДРУГИХ ANDROID -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no, viewport-fit=cover">
     <title>МОЙ КАДАСТР | Кадастровые услуги в Красноярске и РФ</title>
     <meta name="description" content="Профессиональные кадастровые и геодезические работы. Оформление земельных участков от государства, помощь льготным категориям.">
     
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
-    <!-- AOS для анимаций -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-        /* === СБРОС === */
         * {
             margin: 0;
             padding: 0;
@@ -49,7 +44,6 @@
             padding: 0 30px;
         }
 
-        /* === ШАПКА === */
         .header {
             background: rgba(255, 255, 255, 0.98);
             backdrop-filter: blur(10px);
@@ -161,7 +155,6 @@
             border-radius: 12px;
         }
 
-        /* === ГЕРОЙ === */
         .hero {
             padding: 80px 0 60px;
             background: linear-gradient(135deg, #f8fafc 0%, #ffffff 50%, #f1f5f9 100%);
@@ -311,7 +304,6 @@
             box-shadow: 0 15px 30px rgba(245,176,65,0.3);
         }
 
-        /* === ГЕО-БЕЙДЖ === */
         .geo-badge {
             background: linear-gradient(135deg, #f8fafc, #ffffff);
             padding: 12px 25px;
@@ -325,7 +317,6 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.02);
         }
 
-        /* === УСЛУГИ === */
         .services-section {
             padding: 80px 0;
             width: 100%;
@@ -430,7 +421,6 @@
             color: white;
         }
 
-        /* === ОТЗЫВЫ === */
         .reviews-section {
             background: linear-gradient(135deg, #ffffff, #f8fafc);
             padding: 80px 0;
@@ -458,7 +448,6 @@
             object-fit: cover;
         }
 
-        /* === ЭТАПЫ РАБОТЫ === */
         .process-section {
             padding: 80px 0;
             background: #f8fafc;
@@ -500,7 +489,6 @@
             font-size: 14px;
         }
 
-        /* === О КОМПАНИИ === */
         .about-section {
             padding: 80px 0;
             width: 100%;
@@ -573,7 +561,6 @@
             color: #64748b;
         }
 
-        /* === КОНТАКТЫ === */
         .contacts-section {
             padding: 80px 0;
             background: #f8fafc;
@@ -625,7 +612,6 @@
             color: #1e3c5c;
         }
 
-        /* === КАРТА === */
         .map-container {
             border-radius: 30px;
             overflow: hidden;
@@ -634,7 +620,6 @@
             box-shadow: 0 30px 60px rgba(0,0,0,0.1);
         }
 
-        /* === 2GIS ССЫЛКА === */
         .map-link {
             text-align: center;
             margin: 20px 0;
@@ -657,7 +642,6 @@
             color: white;
         }
 
-        /* === УВЕДОМЛЕНИЕ === */
         .notification-overlay {
             position: fixed;
             top: 0;
@@ -736,7 +720,6 @@
             box-shadow: 0 10px 20px rgba(30,60,92,0.3);
         }
 
-        /* === COOKIE CONSENT === */
         .cookie-consent {
             position: fixed;
             bottom: 20px;
@@ -797,7 +780,6 @@
             background: #f1f5f9;
         }
 
-        /* === ЧАТ === */
         .chat-button {
             position: fixed;
             bottom: 30px;
@@ -916,7 +898,6 @@
             transform: scale(1.1);
         }
 
-        /* === ФУТЕР === */
         .footer {
             background: #0f172a;
             color: white;
@@ -951,7 +932,6 @@
             color: #64748b;
         }
 
-        /* === ИСПРАВЛЕННАЯ АДАПТАЦИЯ ДЛЯ REDMI И ДРУГИХ ANDROID === */
         @media (max-width: 992px) {
             .hero-grid {
                 grid-template-columns: 1fr;
@@ -1299,7 +1279,6 @@
             }
         }
 
-        /* СПЕЦИАЛЬНО ДЛЯ REDMI И ДРУГИХ ANDROID */
         @media (max-width: 400px) {
             .container {
                 padding: 0 12px;
@@ -1409,7 +1388,6 @@
     </style>
 </head>
 <body>
-    <!-- COOKIE CONSENT -->
     <div id="cookieConsent" class="cookie-consent">
         <div class="cookie-content">
             <div class="cookie-text">
@@ -1422,7 +1400,6 @@
         </div>
     </div>
 
-    <!-- УВЕДОМЛЕНИЕ -->
     <div id="notificationOverlay" class="notification-overlay">
         <div class="notification-modal">
             <div id="notificationIcon" class="notification-icon success">
@@ -1434,7 +1411,6 @@
         </div>
     </div>
 
-    <!-- ЧАТ -->
     <div class="chat-button" id="chatButton">
         <i class="fas fa-comment"></i>
     </div>
@@ -1454,7 +1430,6 @@
         </div>
     </div>
 
-    <!-- ШАПКА -->
     <header class="header">
         <div class="container header-inner">
             <div class="logo">
@@ -1476,7 +1451,6 @@
         </div>
     </header>
 
-    <!-- ГЕОЛОКАЦИЯ -->
     <div class="container">
         <div class="geo-badge" id="geoLocation">
             <i class="fas fa-map-marker-alt" style="color: #1e3c5c;"></i>
@@ -1484,7 +1458,6 @@
         </div>
     </div>
 
-    <!-- ГЕРОЙ -->
     <section class="hero">
         <div class="container hero-grid">
             <div data-aos="fade-right" data-aos-duration="1000">
@@ -1517,13 +1490,11 @@
         </div>
     </section>
 
-    <!-- УСЛУГИ -->
     <section id="services" class="services-section">
         <div class="container">
             <h2 class="section-title" data-aos="fade-up">Наши услуги</h2>
             <p class="section-subtitle" data-aos="fade-up">Полный комплекс кадастровых и геодезических работ</p>
             <div class="services-grid" id="servicesGrid">
-                <!-- 1. Постановка на учет -->
                 <div class="service-card" data-aos="flip-up">
                     <div class="service-image-container">
                         <img src="https://images.pexels.com/photos/280229/pexels-photo-280229.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Дом" class="service-image" loading="lazy" onerror="this.src='https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&w=800'">
@@ -1539,7 +1510,6 @@
                     </div>
                 </div>
 
-                <!-- 2. Акт обследования -->
                 <div class="service-card" data-aos="flip-up" data-aos-delay="100">
                     <div class="service-image-container">
                         <img src="https://images.pexels.com/photos/323705/pexels-photo-323705.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Документы" class="service-image" loading="lazy" onerror="this.src='https://images.pexels.com/photos/4498129/pexels-photo-4498129.jpeg?auto=compress&cs=tinysrgb&w=800'">
@@ -1555,7 +1525,6 @@
                     </div>
                 </div>
 
-                <!-- 3. Межевой план -->
                 <div class="service-card" data-aos="flip-up" data-aos-delay="200">
                     <div class="service-image-container">
                         <img src="https://images.pexels.com/photos/221540/pexels-photo-221540.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Участок" class="service-image" loading="lazy" onerror="this.src='https://images.pexels.com/photos/210617/pexels-photo-210617.jpeg?auto=compress&cs=tinysrgb&w=800'">
@@ -1571,7 +1540,6 @@
                     </div>
                 </div>
 
-                <!-- 4. Оформление гаражей -->
                 <div class="service-card" data-aos="flip-up">
                     <div class="service-image-container">
                         <img src="https://images.pexels.com/photos/2988956/pexels-photo-2988956.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Гараж" class="service-image" loading="lazy" onerror="this.src='https://images.pexels.com/photos/244206/pexels-photo-244206.jpeg?auto=compress&cs=tinysrgb&w=800'">
@@ -1587,7 +1555,6 @@
                     </div>
                 </div>
 
-                <!-- 5. Льготным категориям -->
                 <div class="service-card" data-aos="flip-up" data-aos-delay="100">
                     <div class="service-image-container">
                         <img src="https://images.pexels.com/photos/2725666/pexels-photo-2725666.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Семья" class="service-image" loading="lazy" onerror="this.src='https://images.pexels.com/photos/2641094/pexels-photo-2641094.jpeg?auto=compress&cs=tinysrgb&w=800'">
@@ -1603,7 +1570,6 @@
                     </div>
                 </div>
 
-                <!-- 6. Оформление через аукцион -->
                 <div class="service-card" data-aos="flip-up" data-aos-delay="200">
                     <div class="service-image-container">
                         <img src="https://images.pexels.com/photos/380768/pexels-photo-380768.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Аукцион" class="service-image" loading="lazy" onerror="this.src='https://images.pexels.com/photos/325944/pexels-photo-325944.jpeg?auto=compress&cs=tinysrgb&w=800'">
@@ -1622,7 +1588,6 @@
         </div>
     </section>
 
-    <!-- О КОМПАНИИ -->
     <section id="about" class="about-section">
         <div class="container">
             <div class="about-grid">
@@ -1649,7 +1614,6 @@
         </div>
     </section>
 
-    <!-- ЭТАПЫ РАБОТЫ -->
     <section id="process" class="process-section">
         <div class="container">
             <h2 class="section-title" data-aos="fade-up">Этапы работы</h2>
@@ -1678,7 +1642,6 @@
         </div>
     </section>
 
-    <!-- ОТЗЫВЫ -->
     <section id="reviews" class="reviews-section">
         <div class="container">
             <h2 class="section-title" data-aos="fade-up">Фото наших работ</h2>
@@ -1690,7 +1653,6 @@
         </div>
     </section>
 
-    <!-- КОНТАКТЫ -->
     <section id="contacts" class="contacts-section">
         <div class="container">
             <h2 class="section-title" data-aos="fade-up">Контакты</h2>
@@ -1718,12 +1680,10 @@
                 </div>
             </div>
             
-            <!-- КАРТА -->
             <div class="map-container" data-aos="fade-up">
                 <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3Aaa40c9f2d6b9c1b0e7c8c9b0a1b2c3d4e5f6g7h8i9j0k1l2m3&source=constructor" width="100%" height="450" frameborder="0"></iframe>
             </div>
             
-            <!-- 2GIS ССЫЛКА -->
             <div class="map-link" data-aos="fade-up">
                 <a href="https://2gis.ru/krasnoyarsk/geo/70000001080559425" target="_blank">
                     <i class="fas fa-map-marked-alt"></i> Смотреть на 2ГИС
@@ -1732,7 +1692,6 @@
         </div>
     </section>
 
-    <!-- ФОРМА ЗАЯВКИ -->
     <section id="order" class="section" style="padding: 80px 0; background: #f8fafc;">
         <div class="container">
             <div style="max-width: 600px; margin: 0 auto;" data-aos="flip-up">
@@ -1750,7 +1709,6 @@
         </div>
     </section>
 
-    <!-- ФУТЕР -->
     <footer class="footer">
         <div class="container">
             <div class="footer-grid">
@@ -1762,17 +1720,14 @@
         </div>
     </footer>
 
-    <!-- СКРИПТЫ -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     
     <script>
-        // ИНИЦИАЛИЗАЦИЯ АНИМАЦИЙ
         AOS.init({
             duration: 800,
             once: true
         });
 
-        // ВАШИ ФОТО ДЛЯ ОТЗЫВОВ
         const reviewPhotos = [
             'https://i.ibb.co/JjhDHZv5/photo-2026-02-21-19-07-11.jpg',
             'https://i.ibb.co/yckQyPtF/photo-2026-02-21-19-07-16.jpg',
@@ -1781,7 +1736,6 @@
             'https://i.ibb.co/Mj1xMZT/photo-2026-02-21-19-07-06.jpg'
         ];
 
-        // ЗАГРУЗКА ФОТО ОТЗЫВОВ
         function loadReviewPhotos() {
             const grid = document.getElementById('reviewsGrid');
             if (!grid) return;
@@ -1808,7 +1762,6 @@
             });
         }
 
-        // COOKIE CONSENT
         function acceptCookies() {
             document.getElementById('cookieConsent').classList.remove('show');
             localStorage.setItem('cookieConsent', 'accepted');
@@ -1819,14 +1772,12 @@
             localStorage.setItem('cookieConsent', 'declined');
         }
 
-        // Проверяем, показывать ли cookie consent
         if (!localStorage.getItem('cookieConsent')) {
             setTimeout(() => {
                 document.getElementById('cookieConsent').classList.add('show');
             }, 1000);
         }
 
-        // ГЕОЛОКАЦИЯ
         fetch('https://ipapi.co/json/')
             .then(res => res.json())
             .then(data => {
@@ -1841,7 +1792,6 @@
                 document.getElementById('geoLocation').querySelector('span').textContent = 'Работаем по всей России';
             });
 
-        // УВЕДОМЛЕНИЯ
         const notifOverlay = document.getElementById('notificationOverlay');
         const notifIcon = document.getElementById('notificationIcon');
         const notifTitle = document.getElementById('notificationTitle');
@@ -1861,7 +1811,6 @@
             notifOverlay.classList.remove('show');
         };
 
-        // ЧАТ
         const chatButton = document.getElementById('chatButton');
         const chatWindow = document.getElementById('chatWindow');
         const chatClose = document.getElementById('chatClose');
@@ -1913,11 +1862,9 @@
             }, 1000);
         }
 
-        // Telegram данные
         const TELEGRAM_TOKEN = '8547157787:AAFtPYW7uWZI_AidspthY2Yv6XBITtbKijI';
         const TELEGRAM_CHATS = ['7190496660', '947181995'];
 
-        // Формат телефона
         function formatPhone(inp) {
             let v = inp.value.replace(/\D/g,'');
             if(v.length===0) inp.value='+7';
@@ -1934,7 +1881,6 @@
             i.addEventListener('focus', function(){if(this.value==='') this.value='+7';});
         });
 
-        // Отправка в Telegram
         async function sendToTelegram(phone, name, service, formName) {
             const date = new Date().toLocaleString('ru-RU');
             
@@ -1962,7 +1908,6 @@
             return ok;
         }
 
-        // Обработка заказа услуги
         document.querySelectorAll('.order-service').forEach(btn => {
             btn.addEventListener('click', function() {
                 const service = this.dataset.service;
@@ -1972,7 +1917,6 @@
             });
         });
 
-        // Обработка форм
         async function handleForm(fId, pId, nId, sId, fName) {
             document.getElementById(fId).addEventListener('submit', async function(e) {
                 e.preventDefault();
@@ -2009,7 +1953,6 @@
         handleForm('quickForm', 'quickPhone', 'quickName', null, 'Быстрая заявка');
         handleForm('orderForm', 'orderPhone', 'orderName', 'orderService', 'Заявка на услугу');
 
-        // Мобильное меню
         const menuToggle = document.getElementById('menuToggle');
         const nav = document.getElementById('nav');
         
@@ -2025,8 +1968,7 @@
             });
         });
 
-        // ЗАГРУЗКА ФОТО ПРИ СТАРТЕ
         window.addEventListener('load', loadReviewPhotos);
     </script>
 </body>
-</html>
+    </html>
